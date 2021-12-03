@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-12-03 17:14+0200\n"
+"POT-Creation-Date: 2021-12-03 20:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -771,6 +771,7 @@ msgstr ""
 #: flaskshop/templates/checkout/cart.html:7
 #: flaskshop/templates/orders/details.html:12
 #: flaskshop/templates/public/page.html:13
+#: plugin_example/conversations/templates/message_layout.html:7
 msgid "Home"
 msgstr ""
 
@@ -1891,5 +1892,115 @@ msgstr ""
 
 #: flaskshop/templates/public/style_guide.html:843
 msgid "FROM"
+msgstr ""
+
+#: plugin_example/conversations/forms.py:14
+msgid "Recipient"
+msgstr ""
+
+#: plugin_example/conversations/forms.py:14
+msgid "A valid username is required."
+msgstr ""
+
+#: plugin_example/conversations/forms.py:18
+#: plugin_example/conversations/templates/conversation.html:252
+msgid "Subject"
+msgstr ""
+
+#: plugin_example/conversations/forms.py:18
+msgid "A Subject is required."
+msgstr ""
+
+#: plugin_example/conversations/forms.py:22
+#: plugin_example/conversations/forms.py:53
+msgid "Message"
+msgstr ""
+
+#: plugin_example/conversations/forms.py:22
+#: plugin_example/conversations/forms.py:53
+msgid "A message is required."
+msgstr ""
+
+#: plugin_example/conversations/forms.py:28
+msgid "The username you entered does not exist."
+msgstr ""
+
+#: plugin_example/conversations/forms.py:30
+msgid "You cannot send a PM to yourself."
+msgstr ""
+
+#: plugin_example/conversations/views.py:34
+msgid ""
+"You cannot send any messages anymore because you have reached your "
+"message limit."
+msgstr ""
+
+#: plugin_example/conversations/templates/message_form.html:3
+#: plugin_example/conversations/views.py:145
+msgid "Compose Message"
+msgstr ""
+
+#: plugin_example/conversations/views.py:177
+msgid "Message sent."
+msgstr ""
+
+#: plugin_example/conversations/templates/_inject_navlink.html:7
+#: plugin_example/conversations/templates/_inject_navlink.html:18
+#: plugin_example/conversations/templates/inbox.html:3
+msgid "Inbox"
+msgstr ""
+
+#: plugin_example/conversations/templates/_inject_navlink.html:15
+msgid "No unread messages."
+msgstr ""
+
+#: plugin_example/conversations/templates/_inject_navlink.html:19
+#: plugin_example/conversations/templates/message_layout.html:20
+msgid "New Message"
+msgstr ""
+
+#: plugin_example/conversations/templates/conversation.html:304
+msgid "Send"
+msgstr ""
+
+#: plugin_example/conversations/templates/conversation_list.html:14
+msgid "Conversations"
+msgstr ""
+
+#: plugin_example/conversations/templates/conversation_list.html:52
+#: plugin_example/conversations/templates/conversation_list.html:59
+msgid "Deleted User"
+msgstr ""
+
+#: plugin_example/conversations/templates/conversation_list.html:73
+msgid "trash"
+msgstr ""
+
+#: plugin_example/conversations/templates/conversation_list.html:82
+msgid "delete"
+msgstr ""
+
+#: plugin_example/conversations/templates/conversation_list.html:91
+msgid "restore"
+msgstr ""
+
+#: plugin_example/conversations/templates/conversation_list.html:98
+msgid "edit"
+msgstr ""
+
+#: plugin_example/conversations/templates/conversation_list.html:108
+msgid "No conversations found."
+msgstr ""
+
+#: plugin_example/conversations/templates/message_layout.html:10
+msgid "Private Message"
+msgstr ""
+
+#: plugin_example/conversations/templates/sent.html:3
+msgid "Sent Messages"
+msgstr ""
+
+#: plugin_example/conversations/templates/trash.html:3
+msgid "Trash"
 msgstr ""
 

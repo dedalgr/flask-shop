@@ -134,6 +134,8 @@ DASHBOARD_MENUS = [
     {"title": "Collections", "endpoint": "collections", "parent_id": 1},
     {"title": "Sales", "endpoint": "sales", "parent_id": 4},
     {"title": "Vouchers", "endpoint": "vouchers", "parent_id": 4},
+    {"title": "Custumers", "endpoint": "users", "parent_id": 3},
+    {"title": "E-mail", "endpoint": "mails", "parent_id": 3},
 ]
 
 """
