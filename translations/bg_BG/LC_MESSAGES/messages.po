@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-12-01 17:58+0200\n"
-"PO-Revision-Date: 2021-12-01 17:40+0200\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2021-12-03 17:14+0200\n"
+"PO-Revision-Date: 2021-12-03 17:01+0200\n"
+"Last-Translator: dedal <grigor.kolev@gmail.com>\n"
 "Language: bg_BG\n"
 "Language-Team: bg_BG <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -702,57 +702,6 @@ msgstr "Това не е вашата поръчка!"
 msgid "This Order Can Not Pay"
 msgstr "Тази поръчка не може да се плати"
 
-#: flaskshop/plugin/conversations/forms.py:13
-msgid "Recipient"
-msgstr "Получател"
-
-#: flaskshop/plugin/conversations/forms.py:13
-msgid "A valid username is required."
-msgstr "Валидно потребителско име е задължително."
-
-#: flaskshop/plugin/conversations/forms.py:17
-#: flaskshop/templates/conversations/conversation.html:252
-msgid "Subject"
-msgstr "Относно"
-
-#: flaskshop/plugin/conversations/forms.py:17
-msgid "A Subject is required."
-msgstr "Заглавието е задължително."
-
-#: flaskshop/plugin/conversations/forms.py:21
-#: flaskshop/plugin/conversations/forms.py:52
-msgid "Message"
-msgstr "Съобщение"
-
-#: flaskshop/plugin/conversations/forms.py:21
-#: flaskshop/plugin/conversations/forms.py:52
-msgid "A message is required."
-msgstr "Съобщение е задължително."
-
-#: flaskshop/plugin/conversations/forms.py:27
-msgid "The username you entered does not exist."
-msgstr "Потребителското име, което сте въвели, не съществува."
-
-#: flaskshop/plugin/conversations/forms.py:29
-msgid "You cannot send a PM to yourself."
-msgstr "Не можете да изпратите ЛС на себе си."
-
-#: flaskshop/plugin/conversations/views.py:37
-msgid ""
-"You cannot send any messages anymore because you have reached your "
-"message limit."
-msgstr ""
-"Вече не можете да изпращате никакви съобщения, защото сте достигнали "
-"лимита си за съобщения."
-
-#: flaskshop/plugin/conversations/views.py:148
-msgid "Compose Message"
-msgstr "Създай съобщение"
-
-#: flaskshop/plugin/conversations/views.py:180
-msgid "Message sent."
-msgstr "Съобщението е изпратено."
-
 #: flaskshop/templates/base.html:6
 msgid "flask store"
 msgstr "магазин"
@@ -778,7 +727,8 @@ msgstr "Регистрирай"
 #: flaskshop/templates/account/login.html:3
 #: flaskshop/templates/account/login.html:20
 #: flaskshop/templates/account/partials/login_form.html:11
-#: flaskshop/templates/base.html:62 flaskshop/templates/base.html:200
+#: flaskshop/templates/account/signup.html:13 flaskshop/templates/base.html:62
+#: flaskshop/templates/base.html:200
 msgid "Log in"
 msgstr "Вход"
 
@@ -835,6 +785,7 @@ msgid "Recent Orders"
 msgstr "Последни поръчки"
 
 #: flaskshop/templates/account/details.html:29
+#: flaskshop/templates/account/details.html:107
 #: flaskshop/templates/public/style_guide.html:673
 msgid "Change password"
 msgstr "Промени парола"
@@ -901,6 +852,15 @@ msgstr "Нов адрес"
 #: flaskshop/templates/account/login.html:10
 msgid "Don't have an account yet?"
 msgstr "Още нямате профил?"
+
+#: flaskshop/templates/account/signup.html:10
+msgid "Already have an account?"
+msgstr "Още нямате профил?"
+
+#: flaskshop/templates/account/signup.html:20
+#: flaskshop/templates/account/signup.html:28
+msgid "Create an account"
+msgstr "Създай акаунт"
 
 #: flaskshop/templates/account/partials/login_form.html:14
 msgid "Forgot password?"
@@ -987,65 +947,6 @@ msgstr "Метод за доставка"
 #: flaskshop/templates/checkout/shipping.html:60
 msgid "Continue"
 msgstr "Продължи"
-
-#: flaskshop/templates/conversations/_inject_navlink.html:7
-#: flaskshop/templates/conversations/_inject_navlink.html:18
-#: flaskshop/templates/conversations/inbox.html:3
-msgid "Inbox"
-msgstr "Входящи"
-
-#: flaskshop/templates/conversations/_inject_navlink.html:15
-msgid "No unread messages"
-msgstr "Няма непрочетени съобщения"
-
-#: flaskshop/templates/conversations/_inject_navlink.html:19
-msgid "New Message"
-msgstr "Ново съобщение"
-
-#: flaskshop/templates/conversations/conversation.html:304
-msgid "Send"
-msgstr "Изпрати"
-
-#: flaskshop/templates/conversations/conversation_list.html:14
-msgid "Conversations"
-msgstr "Разговори"
-
-#: flaskshop/templates/conversations/conversation_list.html:48
-msgid "From"
-msgstr "От"
-
-#: flaskshop/templates/conversations/conversation_list.html:52
-#: flaskshop/templates/conversations/conversation_list.html:59
-msgid "Deleted User"
-msgstr "Изтрит потребител"
-
-#: flaskshop/templates/conversations/conversation_list.html:55
-msgid "to"
-msgstr "до"
-
-#: flaskshop/templates/conversations/conversation_list.html:61
-msgid "on"
-msgstr "на"
-
-#: flaskshop/templates/conversations/conversation_list.html:98
-msgid "edit"
-msgstr "редактирай"
-
-#: flaskshop/templates/conversations/conversation_list.html:108
-msgid "No conversations found."
-msgstr "Няма намерени разговори."
-
-#: flaskshop/templates/conversations/message_form.html:3
-msgid " Compose Message"
-msgstr " Създай съобщение"
-
-#: flaskshop/templates/conversations/sent.html:3
-msgid "Sent Messages"
-msgstr "Изпрати съобщение"
-
-#: flaskshop/templates/conversations/trash.html:3
-msgid "Trash"
-msgstr "Кошче"
 
 #: flaskshop/templates/dashboard/index.html:17
 msgid "Sales"
@@ -1533,6 +1434,10 @@ msgstr "Предопреждение!"
 #: flaskshop/templates/public/page.html:28
 msgid "You are previewing a page that is not visible."
 msgstr "Преглеждате страница, която не се вижда."
+
+#: flaskshop/templates/public/search_result.html:3
+msgid "Search results"
+msgstr "Търси резултати"
 
 #: flaskshop/templates/public/search_result.html:21
 msgid "Search"
@@ -2054,4 +1959,85 @@ msgstr "ОТ"
 
 #~ msgid "Invalid IP address."
 #~ msgstr "Невалиден IP адрес."
+
+#~ msgid "Recipient"
+#~ msgstr "Получател"
+
+#~ msgid "A valid username is required."
+#~ msgstr "Валидно потребителско име е задължително."
+
+#~ msgid "Subject"
+#~ msgstr "Относно"
+
+#~ msgid "A Subject is required."
+#~ msgstr "Заглавието е задължително."
+
+#~ msgid "Message"
+#~ msgstr "Съобщение"
+
+#~ msgid "A message is required."
+#~ msgstr "Съобщение е задължително."
+
+#~ msgid "The username you entered does not exist."
+#~ msgstr "Потребителското име, което сте въвели, не съществува."
+
+#~ msgid "You cannot send a PM to yourself."
+#~ msgstr "Не можете да изпратите ЛС на себе си."
+
+#~ msgid ""
+#~ "You cannot send any messages anymore "
+#~ "because you have reached your message"
+#~ " limit."
+#~ msgstr ""
+#~ "Вече не можете да изпращате никакви "
+#~ "съобщения, защото сте достигнали лимита "
+#~ "си за съобщения."
+
+#~ msgid "Compose Message"
+#~ msgstr "Създай съобщение"
+
+#~ msgid "Message sent."
+#~ msgstr "Съобщението е изпратено."
+
+#~ msgid "Inbox"
+#~ msgstr "Входящи"
+
+#~ msgid "No unread messages"
+#~ msgstr "Няма непрочетени съобщения"
+
+#~ msgid "New Message"
+#~ msgstr "Ново съобщение"
+
+#~ msgid "Send"
+#~ msgstr "Изпрати"
+
+#~ msgid "Conversations"
+#~ msgstr "Разговори"
+
+#~ msgid "From"
+#~ msgstr "От"
+
+#~ msgid "Deleted User"
+#~ msgstr "Изтрит потребител"
+
+#~ msgid "to"
+#~ msgstr "до"
+
+#~ msgid "on"
+#~ msgstr "на"
+
+#~ msgid "edit"
+#~ msgstr "редактирай"
+
+#~ msgid "No conversations found."
+#~ msgstr "Няма намерени разговори."
+
+#~ msgid " Compose Message"
+#~ msgstr " Създай съобщение"
+
+#~ msgid "Sent Messages"
+#~ msgstr "Изпрати съобщение"
+
+#~ msgid "Trash"
+#~ msgstr "Кошче"
 
