@@ -139,7 +139,7 @@ class ProductForm(FlaskForm):
     review_count = IntegerField(lazy_gettext('Review Count'), default=0)
     category_id = SelectField(lazy_gettext('Category'))
     description = TextAreaField(lazy_gettext('Description'))
-    images = FieldList(StringField(lazy_gettext('Images')))  # TODO 限制图片数量
+    images = FieldList(StringField(lazy_gettext('Images')))  # TODO Add max image count
     attributes = FieldList( SelectField(lazy_gettext('Atributes')))
     submit = SubmitField(lazy_gettext('Submit'))
 
