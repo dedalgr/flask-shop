@@ -1,7 +1,7 @@
 {% import 'dashboard/_macros.html' as macros%}
 {% import 'dashboard/_vendor.html' as vendor%}
 {% extends 'dashboard/layout.html' %}
-
+{{ ckeditor.load(custom_url=url_for('static', filename='ckeditor/ckeditor.js')) }}
 {% block body %}
 <section class="content">
     <div class="container-fluid">
@@ -11,21 +11,22 @@
                 <!-- general form elements -->
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">{% if 'edit' in request.path %}{% trans %}Edit{% endtrans %}{% else %}{% trans %}Create{% endtrans %}{% endif %} {% trans %}Attribute{% endtrans %}
-                        </h3>
+                        <h3 class="card-title">{% if 'edit' in request.path %}{% trans %}Edit{% endtrans %}{% else %}{% trans %}Create{% endtrans %}{% endif %} {% trans %}Payment{% endtrans %}</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
                     <form method="POST" action="">
+
                         <div class="card-body">
                             {{ form.hidden_tag() }}
                             {{ vendor.render_field(form.title) }}
-                            {{ macros.render_field_list(form.values) }}
-                            {{ macros.render_select_multi_field(form.types, product_types) }}
-
-                            <div class="card-footer">
-                                {{ macros.render_submit(form.submit) }}
-                            </div>
+                            {{ vendor.render_field(form.link) }}
+                            {{ macros.render_boolean_field(form.is_activ, '') }}
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            {{ macros.render_submit(form.submit) }}
+                        </div>
                     </form>
                 </div>
             </div>
@@ -35,5 +36,5 @@
 {% endblock %}
 
 {% block tail_js %}
-<script src="{{ url_for('static', filename='build/dashboard/attribute.js') }}"></script>
+<script src="{{ url_for('static', filename='ckeditor/ckeditor.js') }}"></script>
 {% endblock %}

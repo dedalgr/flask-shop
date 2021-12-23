@@ -115,13 +115,14 @@
                 </a>
             </div>
             <div class="col-4">
-                <a class="info-box-config" href="{{url_for('dashboard.mails')}}">
+                <a class="info-box-config" href="{{url_for('dashboard.payment_method')}}">
                     <div class="info-box">
-                        <span class="info-box-icon"><i class="fa fa-mail-reply"></i></span>
+                        <span class="info-box-icon"><i class="fa fa-credit-card"></i></span>
                         <div class="info-box-content">
-                            <span class="info-box-text">{% trans %}E-mail{% endtrans %}</span>
+                            <span class="info-box-text">{% trans %}Payment Method{% endtrans %}</span>
                             <span class="progress-description">
-                                {% trans %}Create mail templates{% endtrans %}
+                                {% trans %}Enable{% endtrans %},{% trans %}Disable{% endtrans %},{% trans %}Add{% endtrans %}
+                                <br>{% trans %}Payment Method{% endtrans %}
                             </span>
                         </div>
                     </div>

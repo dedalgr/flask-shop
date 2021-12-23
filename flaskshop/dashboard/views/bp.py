@@ -29,6 +29,8 @@ from .site import (
     plugin_enable,
     plugin_disable,
     config_index,
+    payment_method,
+    payment_method_manage
 )
 from .product import (
     attributes,
@@ -146,6 +148,13 @@ def flaskshop_load_blueprints(app):
     bp.add_url_rule("/config", view_func=config_index)
     bp.add_url_rule("/users", view_func=users)
     bp.add_url_rule("/users/<user_id>", view_func=user)
+    bp.add_url_rule("/payments", view_func=payment_method)
+    bp.add_url_rule(
+        "/payments/create", view_func=payment_method_manage, methods=["GET", "POST"]
+    )
+    bp.add_url_rule(
+        "/payments/<id>/edit", view_func=payment_method_manage, methods=["GET", "POST"]
+    )
     bp.add_url_rule(
         "/users/<user_id>/edit", view_func=user_edit, methods=["GET", "POST"]
     )
@@ -228,5 +237,4 @@ def flaskshop_load_blueprints(app):
     bp.add_url_rule("/sales", view_func=sales)
     bp.add_url_rule("/sales/create", view_func=sales_manage, methods=["GET", "POST"])
     bp.add_url_rule("/sales/<id>/edit", view_func=sales_manage, methods=["GET", "POST"])
-    # bp.add_url_rule("/mails", view_func=mails)# TODO: e-mail to user, create mail template, send promotion and product
     app.register_blueprint(bp, url_prefix="/dashboard")

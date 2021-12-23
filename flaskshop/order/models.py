@@ -302,3 +302,16 @@ class OrderEvent(Model):
     order_id = Column(db.Integer())
     user_id = Column(db.Integer())
     type_ = Column("type", db.Integer())
+
+class PaymentMethod(Model):
+    __tablename__ = "peyment_method"
+    id = Column(db.Integer, primary_key=True)
+    title = Column(db.String(100), unique=True, nullable=False)
+    link = Column(db.String(100), unique=True, nullable=False)
+    is_activ = Column(db.Boolean(), default=True)
+
+    def __repr__(self):
+        return self.title
+
+    def serialize(self):
+        return {'title': self.title, 'link':self.link}

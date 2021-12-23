@@ -121,13 +121,20 @@
         </div>
         {% if order.status_human == "unfulfilled" %}
         <div class="col-6">
-            <span class="float-right">{% trans %}Please pay before 00:30, else the order will auto closed{% endtrans %}</span>
-            <a href="{{ url_for('order.ali_pay', token=order.token) }}" class="btn btn-primary float-right">
-                {% trans %}Alipay{% endtrans %}
-            </a>
-            <a href="{{ url_for('order.test_pay', token=order.token) }}" class="btn secondary float-right">
-                {% trans %}Pay for test{% endtrans %}
-            </a>
+            <span class="float-right">{% trans %}Please finish order before 00:30, else the order will auto closed{% endtrans %}</span>
+
+            {% if not payment %}
+                <a href="{{ url_for('order.test_pay', token=order.token) }}" class="btn secondary float-right">
+                    {% trans %}Pay for test{% endtrans %}
+                </a>
+            {% else %}
+                {% for i in payment %}
+                    <a href="{{ url_for(i['link'], token=order.token) }}" class="btn btn-primary float-right">
+                        {{ i['title'] }}
+                    </a>
+                {% endfor %}
+            {% endif %}
+
             <a href="{{ url_for('order.cancel_order', token=order.token) }}" class="btn danger float-right">
                 {% trans %}Cancel Order{% endtrans %}
             </a>

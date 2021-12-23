@@ -101,7 +101,7 @@ class UserAddressForm(FlaskForm):
 
 class AttributeForm(FlaskForm):
     title = StringField(lazy_gettext('Title'), validators=[DataRequired()])
-    values = FieldList(StringField(lazy_gettext("Value")))
+    values = FieldList(StringField(lazy_gettext("Values")))
     types = SelectMultipleField(lazy_gettext("Product Types"))
     submit = SubmitField(lazy_gettext('Submit'))
 
@@ -166,6 +166,11 @@ class ShippingMethodForm(FlaskForm):
     price = DecimalField(lazy_gettext('Price'), default=0.00, validators=[NumberRange(min=0)])
     submit = SubmitField(lazy_gettext('Submit'))
 
+class PaymentMethodForm(FlaskForm):
+    title = StringField(lazy_gettext('Title'), validators=[DataRequired()])
+    link = StringField(lazy_gettext('Link'), validators=[DataRequired()])
+    is_activ = BooleanField(lazy_gettext('Is Activ'), default=True)
+    submit = SubmitField(lazy_gettext('Submit'))
 
 class VoucherForm(FlaskForm):
     title = StringField(lazy_gettext('Title'), validators=[DataRequired()])

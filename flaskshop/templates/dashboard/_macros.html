@@ -20,7 +20,7 @@
 
 {% macro render_submit(field) %}
 <button type="submit" class="btn btn-primary">{{ field.label.text }}</button>
-<button onclick="window.history.go(-1); return false;" class="btn btn-default float-right">Cancel</button>
+<button onclick="window.history.go(-1); return false;" class="btn btn-default float-right">{% trans %}Cancel{% endtrans %}</button>
 {% endmacro %}
 
 
@@ -104,15 +104,15 @@
             <input type="text" class="form-control" id="{{subfield.label.field_id}}" name="{{subfield.label.field_id}}"
                 value="{{ subfield.data }}">
             <span class="input-group-append">
-                <button type="button" class="btn btn-info btn-flat" id="item_del">Remove Entry</button>
+                <button type="button" class="btn btn-info btn-flat" id="item_del">{% trans %}Remove Entry{%endtrans %}</button>
             </span>
         </div>
         {% endfor %}
     </div>
     <br />
     <button type="button" class="btn btn-info" id="add_entry" data-index="{{field | length}}"
-        data-field="{{field.label.field_id}}">Add
-        entry</button>
+        data-field="{{field.label.field_id}}">{% trans %}Add
+        entry{% endtrans %}</button>
 </div>
 {% endmacro %}
 
@@ -150,7 +150,7 @@
         <div class="img_block">
             <img class="" src="{{ subfield.data }}">
             <input type="hidden" name="{{subfield.label.field_id}}" value="{{ subfield.data.id }}">
-            <button type="button" class="btn btn-info btn-sm" id="item_del">Remove</button>
+            <button type="button" class="btn btn-info btn-sm" id="item_del">{% trans %}Remove{% endtrans %}</button>
         </div>
         {% endfor %}
     </div>
@@ -158,11 +158,11 @@
     <div class="input-group">
         <div class="custom-file">
             <input type="file" class="custom-file-input" id="exampleInputFile">
-            <label class="custom-file-label" for="exampleInputFile">Update New Image</label>
+            <label class="custom-file-label" for="exampleInputFile">{% trans %}Update New Image{% endtrans %}</label>
         </div>
         <div class="input-group-append">
             <!-- TODO ajax upload image -->
-            <span class="input-group-text" id="">Upload</span>
+            <span class="input-group-text" id="">{% trans %}Upload{% endtrans %}</span>
         </div>
     </div>
 </div>

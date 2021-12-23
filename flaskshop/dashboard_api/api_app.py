@@ -18,6 +18,7 @@ from .views import (
     dashboard_menu_del,
     site_page_del,
     site_menu_del,
+    payments_del,
 )
 
 
@@ -92,6 +93,9 @@ dashboard_api.add_url_rule(
 )
 dashboard_api.add_url_rule(
     "/site_pages/<int:id>/delete", view_func=site_page_del, methods=["DELETE"]
+)
+dashboard_api.add_url_rule(
+    "/payment_method/<int:id>/delete", view_func=payments_del, methods=["DELETE"]
 )
 dashboard_api.add_url_rule(
     "/site_menus/<int:id>/delete", view_func=site_menu_del, methods=["DELETE"]
