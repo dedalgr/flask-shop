@@ -1,7 +1,6 @@
 import time
 from datetime import datetime
 from flask_babel import lazy_gettext
-
 from flask import (
     Blueprint,
     render_template,
@@ -10,11 +9,12 @@ from flask import (
     current_app,
     url_for,
     abort,
+    jsonify
 )
 from flask_login import login_required, current_user
 from pluggy import HookimplMarker
 
-from .models import Order, OrderPayment
+from .models import Order, OrderPayment, PaymentMethod
 from .payment import zhifubao
 from flaskshop.extensions import csrf_protect
 from flaskshop.constant import ShipStatusKinds, PaymentStatusKinds, OrderStatusKinds
@@ -29,10 +29,12 @@ def index():
 
 @login_required
 def show(token):
+    payment = PaymentMethod.query.filter_by(is_activ=True).all()
+    payment=[i.serialize() for i in payment]
     order = Order.query.filter_by(token=token).first()
     if not order.is_self_order:
         abort(403, lazy_gettext("This is not your order!"))
-    return render_template("orders/details.html", order=order)
+    return render_template("orders/details.html", order=order, payment=payment)
 
 
 def create_payment(token, payment_method):

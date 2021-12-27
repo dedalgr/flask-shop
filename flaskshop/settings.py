@@ -29,7 +29,7 @@ class Config:
     #   - cache
     #   - save product description
     #   - save page content
-    USE_REDIS = False
+    USE_REDIS = os.getenv("USE_REDIS", '')
     REDIS_URL = os.getenv("REDIS_URI", LocalConfig.redis_uri)
 
     # Elasticsearch
@@ -86,3 +86,5 @@ class Config:
     MAIL_USERNAME = os.getenv("MAIL_USERNAME", '')
     MAIL_PASSWORD = os.getenv("MAIL_PASSWORD", '')
     MAIL_DEFAULT_SENDER = os.getenv("MAIL_DEFAULT_SENDER", '')
+    GA_MEASUREMENT_ID = os.getenv("GA_MEASUREMENT_ID", '')
+

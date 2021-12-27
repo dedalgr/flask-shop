@@ -10,6 +10,7 @@ from flaskshop.product.models import (
 from flaskshop.discount.models import Sale, Voucher
 from flaskshop.dashboard.models import DashboardMenu
 from flaskshop.public.models import Page, MenuItem
+from flaskshop.order.models import PaymentMethod
 
 from .utils import ApiResult, wrap_partial
 
@@ -35,3 +36,4 @@ product_type_del = wrap_partial(item_del, ProductType)
 dashboard_menu_del = wrap_partial(item_del, DashboardMenu)
 site_page_del = wrap_partial(item_del, Page)
 site_menu_del = wrap_partial(item_del, MenuItem)
+payments_del = wrap_partial(item_del, PaymentMethod)

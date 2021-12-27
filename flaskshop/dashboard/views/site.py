@@ -3,6 +3,7 @@ from flask_babel import lazy_gettext
 
 from flaskshop.public.models import MenuItem, Page
 from flaskshop.dashboard.models import DashboardMenu, Setting
+from flaskshop.order.models import PaymentMethod
 from flaskshop.product.models import Category, Collection
 from flaskshop.checkout.models import ShippingMethod
 from flaskshop.plugin.models import PluginRegistry
@@ -13,6 +14,7 @@ from flaskshop.dashboard.forms import (
     SitePageForm,
     ShippingMethodForm,
     generate_settings_form,
+    PaymentMethodForm,
 )
 
 
@@ -30,7 +32,7 @@ def shipping_methods():
         "items": pagination.items,
         "props": props,
         "pagination": pagination,
-        "identity": "shipping_methods",
+        "identity": gettext("shipping_methods"),
     }
     return render_template("list.html", **context)
 
@@ -65,7 +67,7 @@ def site_menus():
         "items": pagination.items,
         "props": props,
         "pagination": pagination,
-        "identity": "site_menus",
+        "identity": gettext("site_menus"),
     }
     return render_template("list.html", **context)
 
@@ -114,7 +116,7 @@ def dashboard_menus():
         "items": pagination.items,
         "props": props,
         "pagination": pagination,
-        "identity": "dashboard_menus",
+        "identity": gettext("dashboard_menus"),
     }
     return render_template("list.html", **context)
 
@@ -151,7 +153,7 @@ def site_pages():
         "items": pagination.items,
         "props": props,
         "pagination": pagination,
-        "identity": "site_pages",
+        "identity": gettext("site_pages"),
     }
     return render_template("list.html", **context)
 
@@ -222,3 +224,38 @@ def site_setting():
 
 def config_index():
     return render_template("site/index.html")
+
+@admin_required
+def payment_method_manage(id=None):
+    if id:
+        payment = PaymentMethod.get_by_id(id)
+        form = PaymentMethodForm(obj=payment)
+    else:
+        form = PaymentMethodForm()
+    if form.validate_on_submit():
+        if not id:
+            payment = PaymentMethod()
+        form.populate_obj(payment)
+        payment.save()
+        return redirect(url_for("dashboard.payment_method"))
+    return render_template("site/peyment_method.html")
+
+@admin_required
+def payment_method():
+    page = request.args.get("page", type=int, default=1)
+    pagination = PaymentMethod.query.paginate(page, 10)
+    props = {
+        "id": lazy_gettext("ID"),
+        "title": lazy_gettext("Title"),
+        "link": lazy_gettext("Link"),
+        'is_activ': lazy_gettext("Is Activ"),
+        "created_at": lazy_gettext("Created At"),
+    }
+    context = {
+        "title": lazy_gettext("Payment Methods"),
+        "items": pagination.items,
+        "props": props,
+        "pagination": pagination,
+        "identity": "payment_method",
+    }
+    return render_template("list.html", **context)
