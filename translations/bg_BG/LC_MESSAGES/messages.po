@@ -984,7 +984,7 @@ msgstr "Плащания за получаване"
 
 #: flaskshop/templates/dashboard/index.html:55
 msgid "products is on sale"
-msgstr "продукта не е в продажба"
+msgstr "продукта е в продажба"
 
 #: flaskshop/templates/dashboard/index.html:64
 msgid "Top Products"

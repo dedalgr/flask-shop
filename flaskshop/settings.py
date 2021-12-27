@@ -29,7 +29,7 @@ class Config:
     #   - cache
     #   - save product description
     #   - save page content
-    USE_REDIS = False
+    USE_REDIS = os.getenv("USE_REDIS", '')
     REDIS_URL = os.getenv("REDIS_URI", LocalConfig.redis_uri)
 
     # Elasticsearch
