@@ -4,11 +4,13 @@ from flask import request, render_template, redirect, url_for, current_app
 from flask_babel import lazy_gettext, gettext
 from flaskshop.product.models import (
     ProductAttribute,
+    ProductType,
     Collection,
     Product,
     Category,
     ProductType,
     ProductVariant,
+    AttributeChoiceValue
 )
 from flaskshop.dashboard.forms import (
     AttributeForm,
@@ -283,19 +285,31 @@ def product_create_step2():
 
 
 def variant_manage(id=None):
+    product_type_id = request.args.get("product_type_id", 1, int)
+    product_type = ProductType.get_by_id(product_type_id)
     if id:
         variant = ProductVariant.get_by_id(id)
         form = VariantForm(obj=variant)
+        var = form.attributes.object_data
+        var2 = form.attributes.data
+        del form.attributes
+        form.attributes = product_type.product_attributes[0]
+        form.attributes.label = product_type.product_attributes[0].title
+        form.attributes.data = var2
+        form.attributes.object_data = var
+        form.populate_obj(variant)
     else:
         form = VariantForm()
     if form.validate_on_submit():
         if not id:
             variant = ProductVariant()
-        form.populate_obj(variant)
         product_id = request.args.get("product_id")
         if product_id:
             variant.product_id = product_id
+        variant.title = form.title.data
+        variant.quantity = form.quantity.data
+        variant.attributes = {product_type_id: form.attributes.data[0]}
         variant.sku = str(variant.product_id) + "-" + str(form.sku_id.data)
         variant.save()
         return redirect(url_for("dashboard.product_detail", id=variant.product_id))
-    return render_template("product/variant.html", form=form)
+    return render_template("product/variant.html", form=form, product_type=product_type)

@@ -4,9 +4,11 @@ from flask_wtf import FlaskForm
 from flask_login import current_user
 from wtforms import PasswordField, StringField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, Regexp
+from flask_babel import lazy_gettext
+
 
 from .models import User
-from flask_babel import lazy_gettext, gettext
+from flask_babel import lazy_gettext,lazy_gettext
 
 class RegisterForm(FlaskForm):
     """Register form."""

@@ -23,6 +23,7 @@
                             {{ vendor.render_field(form.sku_id) }}
                             {{ vendor.render_field(form.price_override) }}
                             {{ vendor.render_field(form.quantity) }}
+                            {{ macros.render_attribute_field(form.attributes, product_type.product_attributes) }}
                             <div class="card-footer">
                                 {{ macros.render_submit(form.submit) }}
                             </div>

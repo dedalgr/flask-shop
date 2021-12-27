@@ -159,6 +159,7 @@ class VariantForm(FlaskForm):
     title = StringField(lazy_gettext('Title'), validators=[DataRequired()])
     price_override = DecimalField(lazy_gettext('Price override'), default=0.00, validators=[NumberRange(min=0)])
     quantity = IntegerField(lazy_gettext('Quantity'), default=0, validators=[NumberRange(min=0)])
+    attributes = FieldList(SelectField(lazy_gettext('Atributes')))
     submit = SubmitField(lazy_gettext('Submit'))
 
 
