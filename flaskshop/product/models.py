@@ -769,12 +769,12 @@ def get_product_list_context(query, obj):
         is_descending=is_descending,
     )
 
-    args_dict.update(default_attr={})
     attr_filter = obj.attr_filter
+    args_dict.update(default_attr={})
     for attr in attr_filter:
         value = request.args.get(attr.title)
         if value:
-            query = query.filter(Product.attributes.__getitem__(str(attr.id)) == value)
+            query = query.filter(ProductVariant.attributes.__getitem__(str(attr.id)) == value) # FIXME: Not sort by attributes
             args_dict["default_attr"].update({attr.title: int(value)})
     args_dict.update(attr_filter=attr_filter)
 
